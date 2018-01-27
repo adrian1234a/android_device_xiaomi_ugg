@@ -302,16 +302,10 @@ vendor/lib/libmmcamera_pdaf.so
 vendor/lib/libmmcamera_ppbase_module.so
 vendor/lib/libmmcamera_qtech_f3l8yam_eeprom.so
 vendor/lib/libmmcamera_qtech_f5670bq_eeprom.so
-vendor/lib/libmmcamera_s5k3l2_eeprom.so
-vendor/lib/libmmcamera_s5k3l2.so
 vendor/lib/libmmcamera_s5k3l8_mono.so
 vendor/lib/libmmcamera_s5k3l8.so
 vendor/lib/libmmcamera_s5k3m2xm.so
 vendor/lib/libmmcamera_s5k3m2xx.so
-vendor/lib/libmmcamera_s5k5e8_eeprom.so
-vendor/lib/libmmcamera_s5k5e8_ofilm_eeprom.so
-vendor/lib/libmmcamera_s5k5e8_ofilm.so
-vendor/lib/libmmcamera_s5k5e8.so
 vendor/lib/libmmcamera_sonyimx135_eeprom.so
 vendor/lib/libmmcamera_sony_imx214_eeprom.so
 vendor/lib/libmmcamera_sony_imx298_eeprom.so
@@ -351,10 +345,6 @@ vendor/lib/libmmcamera_ppeiscore.so
 vendor/lib/libmmcamera_quadracfa.so
 vendor/lib/libmmcamera_rohm_brcg064gwz_3_eeprom.so
 vendor/lib/libmmcamera_s5k2l7.so
-vendor/lib/libmmcamera_s5k3l8_ofilm.so
-vendor/lib/libmmcamera_s5k3l8_ofilm_eeprom.so
-vendor/lib/libmmcamera_s5k3l8_ofilm_riva.so
-vendor/lib/libmmcamera_s5k3l8_ofilm_riva_eeprom.so
 vendor/lib/libmmcamera_s5k3p3sm.so
 vendor/lib/libmmcamera_s5k3p8sp.so
 vendor/lib/libmmcamera_sony_imx378_eeprom.so
@@ -392,7 +382,6 @@ vendor/lib64/libmmsw_math.so
 vendor/lib64/libmmsw_opencl.so
 vendor/lib64/libmmsw_platform.so
 vendor/lib64/libmorpho_panorama_gp.so
-vendor/lib64/libjni_dualcamera.so
 -vendor/lib/libts_detected_face_hal.so
 -vendor/lib/libts_face_beautify_hal.so
 
@@ -406,7 +395,6 @@ vendor/lib/libactuator_dw9714.so
 vendor/lib/libactuator_dw9716.so
 vendor/lib/libactuator_dw9761b.so
 vendor/lib/libactuator_dw9763.so
-vendor/lib/libactuator_fp5510e2_ov13855.so
 vendor/lib/libactuator_lc898122.so
 vendor/lib/libactuator_lc898212xd.so
 vendor/lib/libactuator_lc898212xd_qc2002.so
@@ -1346,53 +1334,7 @@ vendor/lib/libchromatix_s5k3m2xx_snapshot.so
 vendor/lib/libchromatix_s5k3m2xx_video_4k.so
 vendor/lib/libchromatix_s5k3m2xx_zsl_preview_ad5816g.so
 vendor/lib/libchromatix_s5k3m2xx_zsl_video_ad5816g.so
-vendor/lib/libchromatix_s5k5e8_a3_default_preview.so
-vendor/lib/libchromatix_s5k5e8_a3_default_video.so
-vendor/lib/libchromatix_s5k5e8_common.so
-vendor/lib/libchromatix_s5k5e8_cpp_ds_chromatix.so
-vendor/lib/libchromatix_s5k5e8_cpp_hfr_120.so
-vendor/lib/libchromatix_s5k5e8_cpp_hfr_60.so
-vendor/lib/libchromatix_s5k5e8_cpp_hfr_90.so
-vendor/lib/libchromatix_s5k5e8_cpp_liveshot.so
-vendor/lib/libchromatix_s5k5e8_cpp_preview.so
-vendor/lib/libchromatix_s5k5e8_cpp_snapshot.so
-vendor/lib/libchromatix_s5k5e8_cpp_us_chromatix.so
-vendor/lib/libchromatix_s5k5e8_cpp_video.so
-vendor/lib/libchromatix_s5k5e8_default_video.so
-vendor/lib/libchromatix_s5k5e8_hfr_120.so
-vendor/lib/libchromatix_s5k5e8_hfr_60.so
-vendor/lib/libchromatix_s5k5e8_hfr_90.so
-vendor/lib/libchromatix_s5k5e8_liveshot.so
-vendor/lib/libchromatix_s5k5e8_ofilm_a3_default_preview.so
-vendor/lib/libchromatix_s5k5e8_ofilm_a3_default_video.so
-vendor/lib/libchromatix_s5k5e8_ofilm_a3_hfr_120.so
-vendor/lib/libchromatix_s5k5e8_ofilm_a3_hfr_60.so
-vendor/lib/libchromatix_s5k5e8_ofilm_a3_hfr_90.so
-vendor/lib/libchromatix_s5k5e8_ofilm_common.so
-vendor/lib/libchromatix_s5k5e8_ofilm_cpp_ds_chromatix.so
-vendor/lib/libchromatix_s5k5e8_ofilm_cpp_hfr_120.so
-vendor/lib/libchromatix_s5k5e8_ofilm_cpp_hfr_60.so
-vendor/lib/libchromatix_s5k5e8_ofilm_cpp_hfr_90.so
-vendor/lib/libchromatix_s5k5e8_ofilm_cpp_liveshot.so
-vendor/lib/libchromatix_s5k5e8_ofilm_cpp_preview.so
-vendor/lib/libchromatix_s5k5e8_ofilm_cpp_snapshot.so
-vendor/lib/libchromatix_s5k5e8_ofilm_cpp_us_chromatix.so
-vendor/lib/libchromatix_s5k5e8_ofilm_cpp_video.so
-vendor/lib/libchromatix_s5k5e8_ofilm_default_video.so
-vendor/lib/libchromatix_s5k5e8_ofilm_hfr_120.so
-vendor/lib/libchromatix_s5k5e8_ofilm_hfr_60.so
-vendor/lib/libchromatix_s5k5e8_ofilm_hfr_90.so
-vendor/lib/libchromatix_s5k5e8_ofilm_liveshot.so
-vendor/lib/libchromatix_s5k5e8_ofilm_postproc.so
-vendor/lib/libchromatix_s5k5e8_ofilm_preview.so
-vendor/lib/libchromatix_s5k5e8_ofilm_snapshot.so
-vendor/lib/libchromatix_s5k5e8_ofilm_zsl_preview.so
-vendor/lib/libchromatix_s5k5e8_ofilm_zsl_video.so
-vendor/lib/libchromatix_s5k5e8_postproc.so
-vendor/lib/libchromatix_s5k5e8_preview.so
-vendor/lib/libchromatix_s5k5e8_snapshot.so
-vendor/lib/libchromatix_s5k5e8_zsl_preview.so
-vendor/lib/libchromatix_s5k5e8_zsl_video.so
+
 
 # Camera configs
 etc/camera/camera_config.xml
@@ -1422,21 +1364,13 @@ etc/camera/ov8858_chromatix.xml
 etc/camera/ov8865_chromatix.xml
 etc/camera/ov13850_chromatix.xml
 etc/camera/ov13850_q13v06k_chromatix.xml
-etc/camera/ovt_ov12a10_i_chromatix.xml
 etc/camera/s5k2l7_8953_chromatix.xml
 etc/camera/s5k2l7_chromatix.xml
-etc/camera/s5k3l2_chromatix.xml
 etc/camera/s5k3m2xm_chromatix.xml
 etc/camera/s5k3m2xm_chromatix_bear.xml
 etc/camera/s5k3m2xx_chromatix.xml
 etc/camera/s5k3p3sm_chromatix.xml
 etc/camera/csidtg_chromatix.xml
-etc/camera/s5k3l8_chromatix.xml
-etc/camera/s5k3l8_f3l8yam_chromatix.xml
-etc/camera/s5k3l8_mono_chromatix.xml
-etc/camera/s5k3l8_ofilm_chromatix.xml
-etc/camera/s5k3l8_ofilm_riva_chromatix.xml
-
 
 # Camera firmware
 etc/firmware/cpp_firmware_v1_1_1.fw
@@ -2148,9 +2082,6 @@ bin/cnss_diag
 bin/wcnss_service
 bin/fstman
 lib/modules/pronto/pronto_wlan.ko
-
-# oem
-vendor/lib/liboemcrypto.so
 
 # To-Do
 vendor/lib/libaudioparsers.so
