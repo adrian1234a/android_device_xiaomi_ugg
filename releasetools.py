@@ -22,13 +22,12 @@ def FullOTA_InstallEnd(info):
   ImportBkpBootloaderFirmware(info)
 
 def ImportMainBootloaderFirmware(info):
-  info.script.AppendExtra('ui_print("Flashing MultiRom 7.11.16 Firmware.");')
+  info.script.AppendExtra('ui_print("Flashing Global Stable 9.2.1.0 Firmware.");')
   info.script.AppendExtra('package_extract_file("install/firmware-update/cmnlib64.mbn", "/dev/block/bootdevice/by-name/cmnlib64");')
   info.script.AppendExtra('package_extract_file("install/firmware-update/cmnlib.mbn", "/dev/block/bootdevice/by-name/cmnlib");')
   info.script.AppendExtra('package_extract_file("install/firmware-update/rpm.mbn", "/dev/block/bootdevice/by-name/rpm");')
   info.script.AppendExtra('package_extract_file("install/firmware-update/tz.mbn", "/dev/block/bootdevice/by-name/tz");')
   info.script.AppendExtra('package_extract_file("install/firmware-update/emmc_appsboot.mbn", "/dev/block/bootdevice/by-name/aboot");')
-  info.script.AppendExtra('package_extract_file("install/firmware-update/lksecapp.mbn", "/dev/block/bootdevice/by-name/lksecapp");')
   info.script.AppendExtra('package_extract_file("install/firmware-update/sbl1.mbn", "/dev/block/bootdevice/by-name/sbl1");')
   info.script.AppendExtra('package_extract_file("install/firmware-update/devcfg.mbn", "/dev/block/bootdevice/by-name/devcfg");')
   info.script.AppendExtra('package_extract_file("install/firmware-update/keymaster.mbn", "/dev/block/bootdevice/by-name/keymaster");')
@@ -37,13 +36,12 @@ def ImportMainBootloaderFirmware(info):
   info.script.AppendExtra('package_extract_file("install/firmware-update/splash.img", "/dev/block/bootdevice/by-name/splash");')
 
 def ImportBkpBootloaderFirmware(info):
-  info.script.AppendExtra('ui_print("Flashing Backup MultiRom 7.11.16 Firmware.");')
+  info.script.AppendExtra('ui_print("Flashing Backup Global Stable 9.2.1.0 Firmware.");')
   info.script.AppendExtra('package_extract_file("install/firmware-update/cmnlib64.mbn", "/dev/block/bootdevice/by-name/cmnlib64bak");')
   info.script.AppendExtra('package_extract_file("install/firmware-update/cmnlib.mbn", "/dev/block/bootdevice/by-name/cmnlibbak");')
   info.script.AppendExtra('package_extract_file("install/firmware-update/rpm.mbn", "/dev/block/bootdevice/by-name/rpmbak");')
   info.script.AppendExtra('package_extract_file("install/firmware-update/tz.mbn", "/dev/block/bootdevice/by-name/tzbak");')
   info.script.AppendExtra('package_extract_file("install/firmware-update/emmc_appsboot.mbn", "/dev/block/bootdevice/by-name/abootbak");')
-  info.script.AppendExtra('package_extract_file("install/firmware-update/lksecapp.mbn", "/dev/block/bootdevice/by-name/lksecappbak");')
   info.script.AppendExtra('package_extract_file("install/firmware-update/sbl1.mbn", "/dev/block/bootdevice/by-name/sbl1bak");')
   info.script.AppendExtra('package_extract_file("install/firmware-update/devcfg.mbn", "/dev/block/bootdevice/by-name/devcfgbak");')
   info.script.AppendExtra('package_extract_file("install/firmware-update/keymaster.mbn", "/dev/block/bootdevice/by-name/keymasterbak");')
