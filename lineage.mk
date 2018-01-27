@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2017 The LineageOS Project
+# Copyright (C) 2018 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,17 +14,17 @@
 # limitations under the License.
 #
 
-$(call inherit-product, device/xiaomi/rolex/full_rolex.mk)
+$(call inherit-product, device/xiaomi/ugglite/full_ugglite.mk)
 
 # Inherit some common LineageOS stuff.
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
-PRODUCT_NAME := lineage_rolex
+PRODUCT_NAME := lineage_ugglite
 BOARD_VENDOR := Xiaomi
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BUILD_FINGERPRINT=Xiaomi/rolex/rolex:6.0.1/MMB29M/V8.5.1.0.MCCMIED:user/release-keys \
-PRIVATE_BUILD_DESC="rolex-user 6.0.1 MMB29M V8.5.1.0.MCCMIED release-keys"
+    BUILD_FINGERPRINT=Xiaomi/ugglite/ugglite:6.0.1/MMB29M/V8.5.1.0.MCCMIED:user/release-keys \
+PRIVATE_BUILD_DESC="ugglite-user 6.0.1 MMB29M V8.5.1.0.MCCMIED release-keys"
 
