@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/xiaomi/rolex
+LOCAL_PATH := device/xiaomi/ugglite
 
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
@@ -47,7 +47,7 @@ BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_PAGESIZE :=  2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
-TARGET_KERNEL_CONFIG := rolex_defconfig
+TARGET_KERNEL_CONFIG := ugglite_defconfig
 TARGET_KERNEL_SOURCE := kernel/xiaomi/msm8937
 BOARD_CUSTOM_BOOTIMG_MK := $(LOCAL_PATH)/mkbootimg.mk
 TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/kernel
@@ -119,7 +119,7 @@ BOARD_GLOBAL_CFLAGS += -DBATTERY_REAL_INFO
 BOARD_USES_CYANOGEN_HARDWARE := true
 BOARD_HARDWARE_CLASS += \
     hardware/cyanogen/cmhw \
-    device/xiaomi/rolex/cmhw
+    device/xiaomi/ugglite/cmhw
 
 # CNE / DPM
 BOARD_USES_QCNE := true
@@ -162,9 +162,9 @@ TARGET_NO_RPC := true
 TARGET_ANDROID_FILESYSTEM_CONFIG_H := $(LOCAL_PATH)/android_filesystem_config.h
 
 # Init
-TARGET_INIT_VENDOR_LIB := libinit_rolex
+TARGET_INIT_VENDOR_LIB := libinit_ugglite
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc/
-TARGET_RECOVERY_DEVICE_MODULES := libinit_rolex
+TARGET_RECOVERY_DEVICE_MODULES := libinit_ugglite
 
 # Tap2Wake
 TARGET_TAP_TO_WAKE_NODE := "/proc/gesture/onoff"
@@ -228,4 +228,4 @@ WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wlan.ko"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Inherit from the proprietary version
--include vendor/xiaomi/rolex/BoardConfigVendor.mk
+-include vendor/xiaomi/ugglite/BoardConfigVendor.mk
