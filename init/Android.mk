@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2016 The CyanogenMod Project
+# Copyright (C) 2018 The Lineage Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -21,8 +21,8 @@ include $(CLEAR_VARS)
 LOCAL_C_INCLUDES := \
     system/core/base/include \
     system/core/init
-LOCAL_MODULE := libinit_rolex
+LOCAL_MODULE := libinit_ugglite
 LOCAL_MODULE_TAGS := optional
-LOCAL_SRC_FILES := init_rolex.cpp
+LOCAL_SRC_FILES := init_ugglite.cpp
 
 include $(BUILD_STATIC_LIBRARY)
