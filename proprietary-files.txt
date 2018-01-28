@@ -2114,6 +2114,24 @@ bin/wcnss_service
 bin/fstman
 lib/modules/pronto/pronto_wlan.ko
 
+# Fingerprint
+etc/firmware/fpctzappfingerprint.b00
+etc/firmware/fpctzappfingerprint.b01
+etc/firmware/fpctzappfingerprint.b02
+etc/firmware/fpctzappfingerprint.b03
+etc/firmware/fpctzappfingerprint.b04
+etc/firmware/fpctzappfingerprint.b05
+etc/firmware/fpctzappfingerprint.b06
+etc/firmware/fpctzappfingerprint.mdt
+etc/firmware/goodixfp.b00
+etc/firmware/goodixfp.b01
+etc/firmware/goodixfp.b02
+etc/firmware/goodixfp.b03
+etc/firmware/goodixfp.b04
+etc/firmware/goodixfp.b05
+etc/firmware/goodixfp.b06
+etc/firmware/goodixfp.mdt
+
 # To-Do
 vendor/lib/libaudioparsers.so
 vendor/lib/libflash_gpio.so
