@@ -1371,6 +1371,34 @@ etc/camera/s5k3m2xm_chromatix_bear.xml
 etc/camera/s5k3m2xx_chromatix.xml
 etc/camera/s5k3p3sm_chromatix.xml
 etc/camera/csidtg_chromatix.xml
+etc/camera/ov12a10_chromatix.xml
+etc/camera/ov13855_d6_qtich_chromatix.xml
+etc/camera/ov13855_f13855bd_qtech_d6_chromatix.xml
+etc/camera/ov13855_f13855bd_qtech_d6s_chromatix_india.xml
+etc/camera/ov16885_ojf0541_d6_chromatix.xml
+etc/camera/ov16885_ojf0541_ofilm_d7_chromatix.xml
+etc/camera/s5k2p7_chromatix.xml
+etc/camera/s5k2p7_ulysse_semco_chromatix.xml
+etc/camera/s5k3l8_chromatix.xml
+etc/camera/s5k3l8_f13s10m_chromatix.xml
+etc/camera/s5k3l8_f3l8yam_chromatix.xml
+etc/camera/s5k3l8_mono_chromatix.xml
+etc/camera/s5k3l8_ohp0502_ofilm_d6_chromatix.xml
+etc/camera/s5k3l8_ohp0502_ofilm_d6_chromatix_india.xml
+etc/camera/s5k3p3st_chromatix.xml
+etc/camera/s5k3p8_ofilm_d3_factory_chromatix.xml
+etc/camera/s5k3p8_sunny_d3_factory_chromatix.xml
+etc/camera/s5k3p8_ulysse_ofilm_black_chromatix.xml
+etc/camera/s5k3p8_ulysse_sunny_black_chromatix.xml
+etc/camera/s5k3p8_ulysse_sunny_white_chromatix.xml
+etc/camera/s5k3p8sp_chromatix.xml
+etc/camera/s5k3p8sp_d16s01n_sunny_d6s_chromatix.xml
+etc/camera/s5k3p8sp_d16s01n_sunny_d6s_chromatix_india.xml
+etc/camera/s5k3p8sp_d16s01n_sunny_d7_chromatix.xml
+etc/camera/s5k5e8_f5e8ybf_qtech_d6_chromatix.xml
+etc/camera/s5k5e8_f5e8ybf_qtech_d6_chromatix_india.xml
+etc/camera/s5k5e8_oef0501_ofilm_d6_chromatix.xml
+etc/camera/s5k5e8_oef0501_ofilm_d6_chromatix_india.xml
 
 # Camera firmware
 etc/firmware/cpp_firmware_v1_1_1.fw
