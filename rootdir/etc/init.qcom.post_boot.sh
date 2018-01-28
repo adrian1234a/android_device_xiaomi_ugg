@@ -100,13 +100,13 @@ function configure_memory_parameters() {
     echo $clearPercent > /sys/module/zcache/parameters/clear_percent
     echo 30 >  /sys/module/zcache/parameters/max_pool_percent
 
-    # Zram disk - 1500MB size
-    zram_enable=`getprop ro.config.zram`
-    if [ "$zram_enable" == "true" ]; then
-        echo 1636870912 > /sys/block/zram0/disksize
-        mkswap /dev/block/zram0
-        swapon /dev/block/zram0 -p 32758
-    fi
+    # Zram disk - 512MB size
+    #zram_enable=`getprop ro.config.zram`
+    #if [ "$zram_enable" == "true" ]; then
+    #    echo 536870912 > /sys/block/zram0/disksize
+    #    mkswap /dev/block/zram0
+    #    swapon /dev/block/zram0 -p 32758
+    #fi
 
     SWAP_ENABLE_THRESHOLD=1048576
     swap_enable=`getprop ro.config.swap`
@@ -488,26 +488,6 @@ case "$target" in
                 if [ -f /sys/devices/soc0/hw_platform ]; then
                     hw_platform=`cat /sys/devices/soc0/hw_platform`
                 fi
-                case "$soc_id" in
-                    "239")
-                    case "$hw_platform" in
-                        "Surf")
-                            case "$platform_subtype_id" in
-                                "1")
-                                    start hbtp
-                                ;;
-                            esac
-                        ;;
-                        "MTP")
-                            case "$platform_subtype_id" in
-                                "3")
-                                    start hbtp
-                                ;;
-                            esac
-                        ;;
-                    esac
-                    ;;
-                esac
             ;;
              "233" | "240" | "242")
 		echo 0 > /sys/module/lpm_levels/parameters/sleep_disabled
@@ -1147,19 +1127,6 @@ case "$target" in
         case "$soc_id" in
             "293" | "304" | "338" )
 
-                # Start Host based Touch processing
-                case "$hw_platform" in
-                     "MTP" | "Surf" | "RCM" )
-                        #if this directory is present, it means that a
-                        #1200p panel is connected to the device.
-                        dir="/sys/bus/i2c/devices/3-0038"
-#Bug159415 , zhangsan.libin, DEL, 2016.3.29
-#                        if [ ! -d "$dir" ]; then
-                             # start hbtp
-#                        fi
-                        ;;
-                esac
-
                 #scheduler settings
                 echo 3 > /proc/sys/kernel/sched_window_stats_policy
                 echo 3 > /proc/sys/kernel/sched_ravg_hist_size
@@ -1366,12 +1333,6 @@ case "$target" in
         case "$soc_id" in
            "303" | "307" | "308" | "309" | "320" )
 
-                  # Start Host based Touch processing
-                  case "$hw_platform" in
-                    "MTP" | "Surf" | "RCM" )
-                       # start hbtp
-                        ;;
-                  esac
                 # Apply Scheduler and Governor settings for 8917 / 8920
 
                 # HMP scheduler settings
@@ -1465,6 +1426,10 @@ case "$target" in
                 # Set rps mask
                 echo 2 > /sys/class/net/rmnet0/queues/rx-0/rps_cpus
 
+                # input boost configuration
+                echo 1248000 > /sys/module/cpu_boost/parameters/input_boost_freq
+                echo 40 > /sys/module/cpu_boost/parameters/input_boost_ms
+
                 # Enable dynamic clock gating
                 echo 1 > /sys/module/lpm_levels/lpm_workarounds/dynamic_clock_gating
                 # Enable timer migration to little cluster
@@ -1478,13 +1443,6 @@ case "$target" in
 
         case "$soc_id" in
              "294" | "295" | "313" )
-
-                  # Start Host based Touch processing
-                  case "$hw_platform" in
-                    "MTP" | "Surf" | "RCM" )
-                        #start hbtp #Req-bug 164399,libin.wt, MODIFY , 20160413,close hbtp service
-                        ;;
-                  esac
 
                 # Apply Scheduler and Governor settings for 8937/8940
 
@@ -1583,13 +1541,6 @@ case "$target" in
                 echo N > /sys/module/lpm_levels/system/perf/perf-l2-gdhs/idle_enabled
                 echo N > /sys/module/lpm_levels/system/perf/perf-l2-gdhs/suspend_enabled
 
-                # Disable E3 low power modes
-                echo N > /sys/module/lpm_levels/system/system-pc/idle_enabled
-
-                # Disable CCI WFI and CCI RETENTION Low power modes
-                echo N > /sys/module/lpm_levels/system/system-wfi/idle_enabled
-                echo N > /sys/module/lpm_levels/system/system-ret/idle_enabled
-
                 # Bring up all cores online
                 echo 1 > /sys/devices/system/cpu/cpu1/online
                 echo 1 > /sys/devices/system/cpu/cpu2/online
@@ -1598,11 +1549,6 @@ case "$target" in
                 echo 1 > /sys/devices/system/cpu/cpu5/online
                 echo 1 > /sys/devices/system/cpu/cpu6/online
                 echo 1 > /sys/devices/system/cpu/cpu7/online
-                # Disable L2-GDHS low power modes
-                echo N > /sys/module/lpm_levels/system/pwr/pwr-l2-gdhs/idle_enabled
-                echo N > /sys/module/lpm_levels/system/pwr/pwr-l2-gdhs/suspend_enabled
-                echo N > /sys/module/lpm_levels/system/perf/perf-l2-gdhs/idle_enabled
-                echo N > /sys/module/lpm_levels/system/perf/perf-l2-gdhs/suspend_enabled
 
                 # Enable low power modes
                 echo 0 > /sys/module/lpm_levels/parameters/sleep_disabled
@@ -1620,7 +1566,6 @@ case "$target" in
                 echo 50000 > /proc/sys/kernel/sched_freq_dec_notify
 
                 # Enable core control
-                insmod /system/lib/modules/core_ctl.ko
                 echo 2 > /sys/devices/system/cpu/cpu0/core_ctl/min_cpus
                 echo 4 > /sys/devices/system/cpu/cpu0/core_ctl/max_cpus
                 echo 68 > /sys/devices/system/cpu/cpu0/core_ctl/busy_up_thres
@@ -2148,17 +2093,6 @@ case "$target" in
 		hw_platform=`cat /sys/devices/system/soc/soc0/hw_platform`
 	fi
 
-	case "$soc_id" in
-		"292") #msm8998
-		# Start Host based Touch processing
-		case "$hw_platform" in
-		"QRD")
-			start hbtp
-			;;
-		esac
-	    ;;
-	esac
-
 	echo N > /sys/module/lpm_levels/system/pwr/cpu0/ret/idle_enabled
 	echo N > /sys/module/lpm_levels/system/pwr/cpu1/ret/idle_enabled
 	echo N > /sys/module/lpm_levels/system/pwr/cpu2/ret/idle_enabled
@@ -2282,8 +2216,6 @@ case "$target" in
         echo 128 > /sys/block/dm-0/queue/read_ahead_kb
         echo 128 > /sys/block/dm-1/queue/read_ahead_kb
         setprop sys.post_boot.parsed 1
-		rm /data/system/perfd/default_values
-        start perfd
         start gamed
     ;;
     "msm8974")
@@ -2395,14 +2327,34 @@ case "$console_config" in
         ;;
 esac
 
-# Init.d support
-SU="$(ls /su/bin/su 2>/dev/null || ls /system/xbin/su) -c"
-mount -o rw,remount /system && SU="" || eval "$SU mount -o rw,remount /system"
-eval "$SU chmod 777 /system/etc/init.d"
-eval "$SU chmod 777 /system/etc/init.d/*"
-eval "$SU mount -o ro,remount /system"
-ls /system/etc/init.d/* 2>/dev/null | while read xfile ; do eval "$SU /system/bin/sh $xfile" ; done
+#output hwinfo to logcat
+hwinfostr=""
+flashcid=`cat sys/devices/soc/7824900.sdhci/mmc_host/mmc0/mmc0:0001/cid`
+flashvendor=${flashcid:0:2}
+flashinfo="unknown"
+ddrinfo="unknown"
+if [ "$flashvendor" == "90" ]; then
+flashinfo="UFS: Hynix"
+ddrinfo="DDR: Hynix"
+elif [ "$flashvendor" == "15" ]; then
+flashinfo="UFS: Samsung"
+ddrinfo="DDR: Samsung"
+elif [ "$flashvendor" == "13" ]; then
+flashinfo="UFS: Micron"
+ddrinfo="DDR: Micron"
+fi
 
-#LED
-chown system:system /sys/class/leds/*/brightness
-chown system:system /sys/class/leds/*/blink
+tpinfo=`cat proc/tp_info`
+tpinfo_tleft=${tpinfo#"[Vendor]"}
+TpMaker=${tpinfo_tleft%",[FW]"*}
+TouchIC=${tpinfo#*"[IC]"}
+
+LCDinfo=`cat sys/android_lcd/lcd_name`
+FingerprintInfo=`cat proc/hwinfo`
+hwinfostr="$flashinfo""\nTOUCH IC: "$TouchIC"\nTP Maker: "$TpMaker"\nLCD: ""$LCDinfo""\n$FingerprintInfo"
+log -t hwinfo -p i "$flashinfo"
+log -t hwinfo -p i "$ddrinfo"
+log -t hwinfo -p i "TOUCH IC: "$TouchIC
+log -t hwinfo -p i "TP Maker: "$TpMaker
+log -t hwinfo -p i "LCD: ""$LCDinfo"
+log -t hwinfo -p i "$FingerprintInfo"

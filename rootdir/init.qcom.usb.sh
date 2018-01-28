@@ -27,6 +27,21 @@
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 #
+
+serialno=`getprop ro.serialno`
+case "$serialno" in
+    "")
+    serialnum=`getprop ro.serialno`
+    case "$serialnum" in
+        "");; #Do nothing, use default serial number
+        *)
+        echo "$serialnum" > /sys/class/android_usb/android0/iSerial
+    esac
+    ;;
+    *)
+    echo "$serialno" > /sys/class/android_usb/android0/iSerial
+esac
+
 chown -h root.system /sys/devices/platform/msm_hsusb/gadget/wakeup
 chmod -h 220 /sys/devices/platform/msm_hsusb/gadget/wakeup
 
@@ -104,10 +119,9 @@ fi
 # Allow USB enumeration with default PID/VID
 #
 baseband=`getprop ro.baseband`
-
+debuggable=`getprop ro.debuggable`
 echo 1  > /sys/class/android_usb/f_mass_storage/lun/nofua
 usb_config=`getprop persist.sys.usb.config`
-debuggable=`getprop ro.debuggable`
 case "$usb_config" in
     "" | "adb" | "none") #USB persist config not set, select default configuration
       case "$esoc_link" in
@@ -141,12 +155,7 @@ case "$usb_config" in
 	              "msm8937")
 			    case "$soc_id" in
 				    "313" | "320")
-				       #setprop persist.sys.usb.config diag,serial_smd,rmnet_ipa,adb
-                                       if [ -z "$debuggable" -o "$debuggable" = "1" ]; then
-                                           setprop persist.sys.usb.config mtp,adb
-                                       else
-                                           setprop persist.sys.usb.config mtp
-                                       fi
+				       setprop persist.sys.usb.config diag,serial_smd,rmnet_ipa,adb
 				    ;;
 				    *)
 				       #setprop persist.sys.usb.config diag,serial_smd,rmnet_qti_bam,adb
@@ -159,12 +168,7 @@ case "$usb_config" in
 			    esac
 		      ;;
 	              "msm8952" | "msm8953")
-		          #setprop persist.sys.usb.config diag,serial_smd,rmnet_ipa,adb
-                          if [ -z "$debuggable" -o "$debuggable" = "1" ]; then
-                              setprop persist.sys.usb.config mtp,adb
-                          else
-                              setprop persist.sys.usb.config mtp
-                          fi
+		          setprop persist.sys.usb.config diag,serial_smd,rmnet_ipa,adb
 		      ;;
 	              "msm8998")
 		          setprop persist.sys.usb.config diag,serial_cdev,rmnet_gsi,adb
@@ -322,3 +326,52 @@ case "$soc_id" in
 		setprop sys.usb.rps_mask 40
 	;;
 esac
+
+product_name=`getprop ro.product.name`
+miui_release=`getprop ro.miui.ui.version.name`
+miui_debuggable=`getprop ro.debuggable`
+case "$miui_release" in
+	"")
+		case "$miui_debuggable" in
+			"1")
+				setprop persist.sys.usb.config diag,serial_smd,rmnet_qti_bam,adb
+			;;
+			*)
+				setprop persist.sys.usb.config diag,serial_smd,rmnet_qti_bam
+			;;
+		esac
+	;;
+	*)
+		case "$miui_debuggable" in
+			"1")
+				case "$product_name" in
+					"ulysse")
+						setprop persist.sys.usb.config adb
+					;;
+					"ugg" | "ugglite" | "uter")
+						setprop persist.sys.usb.config mtp,adb
+					;;
+					*)
+						setprop persist.sys.usb.config adb
+					;;
+				esac
+			;;
+			*)
+				case "$product_name" in
+					"ulysse")
+						setprop persist.sys.usb.config charging
+					;;
+					"ugg" | "ugglite" | "uter")
+						setprop persist.sys.usb.config mtp
+					;;
+					*)
+						setprop persist.sys.usb.config charging
+					;;
+				esac
+	  		;;
+		esac
+  	;;
+esac
+
+
+
