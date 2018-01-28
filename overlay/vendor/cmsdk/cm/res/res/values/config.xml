@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2015-2016 The CyanogenMod Project
+     Copyright (C) 2018 The Lineage Project
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
@@ -34,8 +34,8 @@
     <integer name="config_deviceLightCapabilities">43</integer>
 
     <!-- Default wi-fi hotspot ssid -->
-    <string name="config_wifiHotSpotSsid" translatable="false">Redmi 4A</string>
+    <string name="config_wifiHotSpotSsid" translatable="false">Redmi Note 5A</string>
     <!-- Default wi-fi direct name -->
-    <string name="config_wifiDirectName" translatable="false">Redmi 4A</string>
+    <string name="config_wifiDirectName" translatable="false">Redmi Note 5A</string>
 
 </resources>
