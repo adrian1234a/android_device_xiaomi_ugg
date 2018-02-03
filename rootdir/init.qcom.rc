@@ -162,8 +162,39 @@ on boot
     # Allow access for CCID command/response timeout configuration
     chown system system /sys/module/ccid_bridge/parameters/bulk_msg_timeout
 
+# Leds
+    chown system system /sys/class/leds/keyboard-backlight/brightness
+    chown system system /sys/class/leds/lcd-backlight/brightness
+    chown system system /sys/class/leds/button-backlight/brightness
+    chown system system /sys/class/leds/jogball-backlight/brightness
+    chown system system /sys/class/leds/red/brightness
+    chown system system /sys/class/leds/red/blink
+    chown system system /sys/class/leds/green/brightness
+    chown system system /sys/class/leds/green/blink
+    chown system system /sys/class/leds/blue/brightness
+    chown system system /sys/class/leds/blue/blink
+    chown system system /sys/class/leds/red/device/grpfreq
+    chown system system /sys/class/leds/red/device/grppwm
+    chown system system /sys/class/leds/red/device/blink
+
+    # IR blaster
+    chown root system /sys/class/leds/infrared/transmit
+    chown root system /sys/class/leds/infrared/brightness
+
     # bond0 used by FST Manager
     chown wifi wifi /sys/class/net/bond0/bonding/queue_id
+
+    # bug244097, enlarge the log buffer size,xuchao,20170206,start
+    setprop persist.logd.size 2097152
+    # bug244097, enlarge the log buffer size,xuchao,20170206,end
+
+    #bug 274787 - 【JIRA】【HONGMI-31927】 [D1-P2][fingerprint] set finger pay prop huangfusheng.wt 20170816 start
+    #on property:persist.sys.fp.vendor=fpc
+      #setprop ro.boot.fpsensor fpc
+    #on property:persist.sys.fp.vendor=goodix
+	#setprop ro.boot.fpsensor goodix
+	#setprop goodix.fp.miui.analyse 1
+    #bug 274787 - 【JIRA】【HONGMI-31927】 [D1-P2][fingerprint] set finger pay prop huangfusheng.wt 20170816 end
 
     # Allow access to emmc rawdump block partition and dload sysfs node
     chown root system /dev/block/bootdevice/by-name/rawdump -p /dev/block/
