@@ -27,10 +27,10 @@
 #
 
 # Define fastmmi
-service fastmmi /system/bin/mmi
-    user root
-    group root
-    disabled
+#service fastmmi /system/bin/mmi
+#    user root
+#    group root
+#    disabled
 
 on property:sys.boot_mode=ffbm
     write -p /dev/block /dev/block/bootdevice/by-name/misc "ffbm-01"
@@ -75,7 +75,6 @@ on mmi
     start qcomsysd
     start ptt_ffbm
     start tftp_server
-    # wangfajie @ 20160627      Add this line to fix the BT FFBM test issue.
     start ftmd
 
 
@@ -100,6 +99,6 @@ on ffbm
 
     trigger early-boot
     trigger boot
-    trigger mmi
+    #trigger mmi
     setprop service.adb.root 1
     setprop persist.sys.openwifi_L 1
