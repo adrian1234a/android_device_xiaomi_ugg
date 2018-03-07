@@ -204,7 +204,6 @@ persist.qfp=false
 ro.core_ctl_min_cpu=2
 ro.core_ctl_max_cpu=4
 
-
 #set device emmc size
 ro.emmc_size=16G
 
@@ -227,6 +226,3 @@ ro.config.zram=true
 
 # Create Swap disk, if below sys-prop enabled & also if device has lower (< 1 GB) RAM
 ro.config.swap=true
-
-# Fix DT2W
-dt2w.enabled=1
