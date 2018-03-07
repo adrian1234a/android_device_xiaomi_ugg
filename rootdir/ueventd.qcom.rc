@@ -229,10 +229,10 @@
 /sys/devices/virtual/input/input*                   set_delay_ms     0660  system   system
 
 # fpc fingerprint
-/sys/devices/soc/soc:fpc1020*	hw_reset 0660 system system
-/sys/devices/soc/soc:fpc1020*	irq 0660 system system
-/sys/devices/soc/soc:fpc1020*	wakeup_enable 0660 system system
-/sys/devices/soc/soc:fpc1020*   fingerdown_wait 0660 system system
+#/sys/devices/soc/soc:fpc1020*	hw_reset 0660 system system
+#/sys/devices/soc/soc:fpc1020*	irq 0660 system system
+#/sys/devices/soc/soc:fpc1020*	wakeup_enable 0660 system system
+#/sys/devices/soc/soc:fpc1020*   fingerdown_wait 0660 system system
 
 
 # vm_bms
@@ -265,7 +265,7 @@
 /dev/ramdump*             0640   system     system
 
 # Fingerprint device
-/dev/qbt1000              0660   system     system
+#/dev/qbt1000              0660   system     system
 
 #ImproveTouch device
 /dev/hbtp_input           0660   system     system
