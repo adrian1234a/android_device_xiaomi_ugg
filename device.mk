@@ -16,7 +16,7 @@
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
-$(call inherit-product, vendor/xiaomi/ugglite/ugglite-vendor.mk)
+$(call inherit-product, vendor/xiaomi/ugg/ugg-vendor.mk)
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
@@ -30,8 +30,8 @@ TARGET_SCREEN_HEIGHT := 1280
 TARGET_SCREEN_WIDTH := 720
 
 # Kernel
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/kernel:kernel
+#PRODUCT_COPY_FILES += \
+#    $(LOCAL_PATH)/kernel:kernel
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -166,6 +166,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/fts_ts.kl:system/usr/keylayout/fts_ts.kl \
     $(LOCAL_PATH)/keylayout/goodix-ts.kl:system/usr/keylayout/goodix-ts.kl \
+    $(LOCAL_PATH)/keylayout/goodix-ts.kl:system/usr/keylayout/uinput-fpc.kl \
+    $(LOCAL_PATH)/keylayout/goodix-ts.kl:system/usr/keylayout/uinput-gf.kl \
     $(LOCAL_PATH)/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
     $(LOCAL_PATH)/keylayout/qpnp_pon.kl:system/usr/keylayout/qpnp_pon.kl \
     $(LOCAL_PATH)/keylayout/synaptics_dsx.kl:system/usr/keylayout/synaptics_dsx.kl \

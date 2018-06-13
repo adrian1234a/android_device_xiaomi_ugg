@@ -199,15 +199,12 @@ persist.timed.enable=true
 # Tcp
 net.tcp.2g_init_rwnd=10
 
-#property to enable fingerprint
-persist.qfp=false
-
 #min/max cpu in core control
-ro.core_ctl_min_cpu=2
-ro.core_ctl_max_cpu=4
+ro.core_ctl_min_cpu=4
+ro.core_ctl_max_cpu=8
 
 #set device emmc size
-ro.emmc_size=16G
+ro.emmc_size=32G
 
 #property to enable DS2 dap
 audio.dolby.ds2.enabled=true

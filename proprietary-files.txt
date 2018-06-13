@@ -192,6 +192,7 @@ lib/libmorpho_memory_allocator.so
 lib/libmorpho_panorama.so
 lib/libqomx_core.so
 lib/libsigchain.so
+lib/libMiCameraHal.so
 lib64/libmorpho_memory_allocator.so
 lib64/libmorpho_panorama.so
 lib64/libsigchain.so
@@ -2663,6 +2664,8 @@ vendor/lib64/libimscamera_jni.so
 vendor/lib64/libimsmedia_jni.so
 vendor/lib64/librcc.so
 vendor/lib64/libvoice-svc.so
+#system/bin/vm_bms
+vendor/qcril.db
 
 # FM Radio
 bin/fm_qsoc_patches
@@ -2792,7 +2795,7 @@ vendor/lib64/libwfduibcsrcinterface.so
 etc/firmware/ice40.bin
 
 # Widevine - from onePlus3
-vendor/lib/mediadrm/libwvdrmengine.so|70419ce1f8eb6bd3aa36234f8d7e8003569efc9c
+vendor/lib/mediadrm/libwvdrmengine.so
 vendor/lib/qcdrm/playready/lib/drm/libdrmprplugin_customer.so
 vendor/lib/qcdrm/playready/lib/libprdrmdecrypt_customer.so
 vendor/lib/qcdrm/playready/lib/libtzplayready_customer.so
@@ -2806,15 +2809,25 @@ vendor/lib64/libmdtp_crypto.so
 
 # Wi-Fi
 bin/cnss-daemon
-etc/firmware/wlan/prima/WCNSS_cfg.dat
-etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
-etc/firmware/wlan/prima/WCNSS_wlan_dictionary.dat
+#etc/firmware/wlan/prima/WCNSS_cfg.dat
+#etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
+#etc/firmware/wlan/prima/WCNSS_wlan_dictionary.dat
 bin/cnss_diag
 bin/wcnss_service
 bin/fstman
 lib/modules/pronto/pronto_wlan.ko
 
-# Fingerprint
+# Fingerprint sensor
+lib64/hw/fingerprint.goodix.default.so
+lib64/hw/fingerprint.msm8937.so
+#lib64/hw/gxfingerprint.default.so
+lib64/lib_fpc_tac_shared.so
+lib64/libgf_algo.so
+lib64/libgf_ca.so
+lib64/libgf_hal.so
+lib/lib_fpc_tac_shared.so
+
+# Fingerprint Firmware
 etc/firmware/fpctzappfingerprint.b00
 etc/firmware/fpctzappfingerprint.b01
 etc/firmware/fpctzappfingerprint.b02

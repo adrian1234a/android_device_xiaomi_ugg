@@ -26,7 +26,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifneq ($(filter ugglite,$(TARGET_DEVICE)),)
+ifneq ($(filter ugg,$(TARGET_DEVICE)),)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
 

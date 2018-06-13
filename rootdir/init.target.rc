@@ -99,10 +99,10 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
 on init
    write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
 
-#service qfp-daemon /system/bin/qfp-daemon
-#   class late_start
-#   user system
-#   group system drmrpc
+service qfp-daemon /system/bin/qfp-daemon
+   class late_start
+   user system
+   group system drmrpc
 
 # Allow usb charging to be disabled peristently
 on property:persist.usb.chgdisabled=1
@@ -182,10 +182,10 @@ on boot
     chown system drmrpc /sys/devices/soc.0/78b7000.i2c/i2c-3/3-0020/input/input0/secure_touch
     chown system drmrpc /sys/devices/soc.0/78b8000.i2c/i2c-4/4-0020/input/input0/secure_touch_enable
     chown system drmrpc /sys/devices/soc.0/78b8000.i2c/i2c-4/4-0020/input/input0/secure_touch
-   #chown system system /dev/goodix_fp
-   #chmod 0644 /dev/goodix_fp
-   #chown system system /dev/goodix_fp_d6
-   #chmod 0644 /dev/goodix_fp_d6
+   chown system system /dev/goodix_fp
+   chmod 0644 /dev/goodix_fp
+   chown system system /dev/goodix_fp_d6
+   chmod 0644 /dev/goodix_fp_d6
 
     write /dev/cpuset/top-app/cpus 0-3
     write /dev/cpuset/foreground/cpus 0-2
@@ -340,22 +340,33 @@ on boot
     write /sys/devices/soc.0/78b8000.i2c/i2c-4/4-0020/input/input0/fw_name PR1702898-s3528t_00260005_00380008.img
     write /sys/devices/soc.0/78b8000.i2c/i2c-4/4-0020/input/input0/update_fw 1
 
-#service gx_fpd /system/bin/goodixfingerprintd
-#    class late_start
-#    user system
-#    group system
-#    disabled
-#
-#on property:persist.sys.fp.goodix=0
-#    stop gx_fpd
-#
-#on property:persist.sys.fp.goodix=1
-#     start gx_fpd
-#
-#service fingerprintd /system/bin/fingerprintd
-#    class late_start
-#    user system
-#    group system
+service gx_fpd /system/bin/goodixfingerprintd
+    class late_start
+    user system
+    group system
+    disabled
+    writepid /dev/cpuset/system-background/tasks
+
+on property:ro.boot.fpsensor=fpc
+    setprop persist.sys.fp.goodix 0
+    setprop ro.hardware.fingerprint fpc
+
+on property:ro.boot.fpsensor=gdx
+    setprop persist.sys.fp.goodix 1
+    setprop ro.hardware.fingerprint gdx
+
+on property:persist.sys.fp.goodix=0
+    stop gx_fpd
+
+on property:persist.sys.fp.goodix=1
+     start gx_fpd
+
+service fingerprintd /system/bin/fingerprintd
+    class late_start
+    user system
+    group system
+    disabled
+    writepid /dev/cpuset/system-background/tasks
 
 service mtservice /system/bin/mtd
     class late_start

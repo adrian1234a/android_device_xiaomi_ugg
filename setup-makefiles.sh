@@ -20,7 +20,7 @@ set -e
 INITIAL_COPYRIGHT_YEAR=2018
 
 # Required!
-DEVICE=ugglite
+DEVICE=ugg
 VENDOR=xiaomi
 
 # Load extractutils and do some sanity checks
