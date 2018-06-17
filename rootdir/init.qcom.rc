@@ -189,10 +189,10 @@ on boot
     start gx_fpd
 
     #bug 274787 - 【JIRA】【HONGMI-31927】 [D1-P2][fingerprint] set finger pay prop huangfusheng.wt 20170816 start
-    on property:persist.sys.fp.vendor=switchf
-	setprop ro.boot.fpsensor fpc  
+    on property:persist.sys.fp.vendor=fpc
+      setprop ro.boot.fpsensor fpc
     on property:persist.sys.fp.vendor=goodix
-	setprop ro.boot.fpsensor gdx
+	setprop ro.boot.fpsensor goodix
     setprop goodix.fp.miui.analyse 1
     #bug 274787 - 【JIRA】【HONGMI-31927】 [D1-P2][fingerprint] set finger pay prop huangfusheng.wt 20170816 end
 
