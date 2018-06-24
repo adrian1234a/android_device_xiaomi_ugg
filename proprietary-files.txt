@@ -2151,22 +2151,6 @@ vendor/lib/libmmcamera_isp_template.so
 vendor/lib/libmmcamera_isp_wb40.so
 vendor/lib/lib_lowlight.so
 
-# kernel modules
-
-lib/modules/ansi_cprng.ko
-lib/modules/backlight.ko
-lib/modules/br_netfilter.ko
-lib/modules/evbug.ko
-lib/modules/generic_bl.ko
-lib/modules/lcd.ko
-lib/modules/mmc_block_test.ko
-lib/modules/mmc_test.ko
-lib/modules/rdbg.ko
-lib/modules/spidev.ko
-lib/modules/test-iosched.ko
-lib/modules/ufs_test.ko
-lib/modules/wil6210.ko
-
 # Charger
 bin/hvdcp_opti
 
@@ -2809,13 +2793,9 @@ vendor/lib64/libmdtp_crypto.so
 
 # Wi-Fi
 bin/cnss-daemon
-#etc/firmware/wlan/prima/WCNSS_cfg.dat
-#etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
-#etc/firmware/wlan/prima/WCNSS_wlan_dictionary.dat
 bin/cnss_diag
 bin/wcnss_service
 bin/fstman
-lib/modules/pronto/pronto_wlan.ko
 
 # Fingerprint sensor
 lib64/hw/fingerprint.goodix.default.so
