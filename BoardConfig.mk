@@ -14,13 +14,13 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/xiaomi/ugglite
+DEVICE_PATH := device/xiaomi/ugg
 
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 
 # Platform
 TARGET_BOARD_PLATFORM := msm8937
-TARGET_BOARD_PLATFORM_GPU := qcom-adreno308
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno505
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8937
@@ -52,7 +52,7 @@ BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_CMDLINE := ignore_loglevel androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 androidboot.bootdevice=7824900.sdhci earlycon=msm_hsl_uart,0x78B0000 androidboot.selinux=permissive
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_PAGESIZE :=  2048
-TARGET_KERNEL_CONFIG := ugglite_defconfig
+TARGET_KERNEL_CONFIG := ugg_defconfig
 TARGET_KERNEL_SOURCE := kernel/xiaomi/msm8937
 
 # Partitions
@@ -183,9 +183,9 @@ DEVICE_MATRIX_FILE   := $(DEVICE_PATH)/configs/hidl/compatibility_matrix.xml
 HWUI_COMPILE_FOR_PERF := true
 
 # Init
-TARGET_INIT_VENDOR_LIB := libinit_ugglite
+TARGET_INIT_VENDOR_LIB := libinit_ugg
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc/
-TARGET_RECOVERY_DEVICE_MODULES := libinit_ugglite
+TARGET_RECOVERY_DEVICE_MODULES := libinit_ugg
 
 # Keymaster
 TARGET_PROVIDES_KEYMASTER := true

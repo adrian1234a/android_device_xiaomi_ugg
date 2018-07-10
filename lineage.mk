@@ -19,16 +19,16 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
-# Inherit from ugglite device
-$(call inherit-product, device/xiaomi/ugglite/device.mk)
+# Inherit from ugg device
+$(call inherit-product, device/xiaomi/ugg/device.mk)
 
 # Inherit some common LineageOS stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-PRODUCT_DEVICE := ugglite
+PRODUCT_DEVICE := ugg
 PRODUCT_BRAND := Xiaomi
-PRODUCT_NAME := lineage_ugglite
-PRODUCT_MODEL := Redmi Note 5A / Y1 Lite
+PRODUCT_NAME := lineage_ugg
+PRODUCT_MODEL := Redmi Note 5A Prime / Y1
 PRODUCT_MANUFACTURER := Xiaomi
 
 BOARD_VENDOR := Xiaomi

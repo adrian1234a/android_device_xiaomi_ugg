@@ -15,10 +15,10 @@
 #
 
 # Inherit from proprietary version
-$(call inherit-product, vendor/xiaomi/ugglite/ugglite-vendor.mk)
+$(call inherit-product, vendor/xiaomi/ugg/ugg-vendor.mk)
 
 # HIDL
-$(call inherit-product, device/xiaomi/ugglite/hidl.mk)
+$(call inherit-product, device/xiaomi/ugg/hidl.mk)
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
@@ -79,6 +79,10 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.print.xml:system/etc/permissions/android.software.print.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
+
+#Fingerprint
+PRODUCT_PACKAGES += \
+    android.hardware.biometrics.fingerprint@2.0-service-custom
 
 # Audio
 PRODUCT_PACKAGES += \

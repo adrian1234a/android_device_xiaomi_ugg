@@ -20,9 +20,9 @@ include $(CLEAR_VARS)
 
 LOCAL_C_INCLUDES := system/core/init
 LOCAL_C_INCLUDES += external/selinux/libselinux/include
-LOCAL_MODULE := libinit_ugglite
+LOCAL_MODULE := libinit_ugg
 LOCAL_MODULE_TAGS := optional
-LOCAL_SRC_FILES := init_ugglite.cpp
+LOCAL_SRC_FILES := init_ugg.cpp
 LOCAL_STATIC_LIBRARIES := libbase
 
 include $(BUILD_STATIC_LIBRARY)
