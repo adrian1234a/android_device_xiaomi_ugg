@@ -52,7 +52,7 @@ BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_CMDLINE := ignore_loglevel androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 androidboot.bootdevice=7824900.sdhci earlycon=msm_hsl_uart,0x78B0000 androidboot.selinux=permissive
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_PAGESIZE :=  2048
-TARGET_KERNEL_CONFIG := ugg_msm8937_defconfig
+TARGET_KERNEL_CONFIG := ugg_defconfig
 TARGET_KERNEL_SOURCE := kernel/xiaomi/msm8937
 
 # Partitions
@@ -121,7 +121,7 @@ QCOM_BT_USE_BTNV := true
 USE_DEVICE_SPECIFIC_CAMERA := true
 BOARD_QTI_CAMERA_32BIT_ONLY := true
 TARGET_TS_MAKEUP := true
-TARGET_USES_QTI_CAMERA_DEVICE := true
+#TARGET_USES_QTI_CAMERA_DEVICE := true
 
 # Charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
@@ -214,7 +214,7 @@ TARGET_RIL_VARIANT := caf
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/recovery/fstab.qcom
 
 # SELinux
-#include device/qcom/sepolicy/sepolicy.mk
+include device/qcom/sepolicy/sepolicy.mk
 #BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 
 # Wlan
@@ -232,4 +232,4 @@ WIFI_DRIVER_FW_PATH_P2P := "p2p"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Inherit from the proprietary version
--include vendor/xiaomi/ugglite/BoardConfigVendor.mk
+-include vendor/xiaomi/ugg/BoardConfigVendor.mk

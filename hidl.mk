@@ -18,11 +18,16 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0
 
+# FingerPrint
+PRODUCT_PACKAGES += \
+    android.hardware.biometrics.fingerprint@2.1
+
 # Camera
 PRODUCT_PACKAGES += \
     camera.device@1.0-impl \
     camera.device@3.2-impl \
     android.hardware.camera.provider@2.4-impl \
+    android.hardware.camera.provider@2.4-service \
     vendor.qti.hardware.camera.device@1.0 \
     vendor.qti.hardware.camera.device@1.0_vendor
 
@@ -72,6 +77,11 @@ PRODUCT_PACKAGES += \
     android.hardware.light@2.0-impl \
     android.hardware.light@2.0-service
 
+# Media
+PRODUCT_PACKAGES += \
+    android.hardware.media.omx@1.0-impl \
+    android.hardware.media.omx@1.0-service
+
 # Netutils
 PRODUCT_PACKAGES += \
     netutils-wrapper-1.0 \
@@ -107,4 +117,4 @@ PRODUCT_PACKAGES += \
 
 # Wlan
 PRODUCT_PACKAGES += \
-    android.hardware.wifi@1.0-service \
+    android.hardware.wifi@1.0-service

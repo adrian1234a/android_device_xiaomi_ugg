@@ -182,19 +182,32 @@ on boot
     # Create directory used for display
     mkdir /persist/display 0770 system graphics
 
+ # Fingerprint
+    setprop persist.sys.fp.vendor none
+    start gx_fpd
+
+    on property:persist.sys.fp.vendor=fpc
+      setprop ro.boot.fpsensor fpc
+    on property:persist.sys.fp.vendor=goodix
+	setprop ro.boot.fpsensor goodix
+    setprop goodix.fp.miui.analyse 1
+
     # DT2W
     chown system system /sys/devices/soc/78b7000.i2c/i2c-3/3-0038//input/input2/device/fts_gesture_mode
     chmod 660 /sys/devices/soc/78b7000.i2c/i2c-3/3-0038//input/input2/device/fts_gesture_mode
 	
-on property:dt2w.enabled=0
-    write /proc/gesture/onoff 0	
-
-    chmod 0660 /proc/gesture/onoff
-    chown system system /proc/gesture/onoff
-	
 # msm specific files that need to be created on /data
 on post-fs-data
     mkdir /data/vendor/misc 01771 system system
+
+    #Create directories for Fingerprint
+    mkdir /data/misc/stargate 0770 system system
+    mkdir /data/misc/stargate/bg_estimation 0770 system system
+    mkdir /data/misc/stargate/calib_test 0770 system system
+    mkdir /data/misc/stargate/database 0770 system system
+
+    # Create dir for fpc
+    mkdir /data/fpc 0770 system system
 
     # Create directory used by display clients
     mkdir /data/vendor/display 0770 system graphics
@@ -435,7 +448,6 @@ service cameraserver /system/bin/cameraserver
     user cameraserver
     group audio camera input drmrpc
     ioprio rt 4
-    setenv LD_PRELOAD "libshim_cameraservice.so"
     writepid /dev/cpuset/camera-daemon/tasks /dev/stune/top-app/tasks
 
 on property:sys.boot_completed=1
